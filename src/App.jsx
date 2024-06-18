@@ -7,7 +7,7 @@ import BookDetails from './pages/BookDetails';
 import NotFound from './pages/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ThemeContexts } from './modules/Contexts';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -17,6 +17,10 @@ function App() {
   const [theme, setTheme] = useState('dark');
   const [search, setSearch] = useState('');
   const handlerSearch = (e) => setSearch(e.target.value)
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
     <>
