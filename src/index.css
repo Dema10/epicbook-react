@@ -1,3 +1,7 @@
 body {
     background-color: lightgoldenrodyellow;
 }
+
+body[data-theme="light"] {
+    background-color: lightblue;
+}
