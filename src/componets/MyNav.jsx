@@ -2,6 +2,7 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import Search from './Search';
 import { useContext } from 'react';
 import { ThemeContexts } from '../modules/Contexts';
+import { Link } from 'react-router-dom';
 
 function MyNav({ search, handlerSearch }) {
   
@@ -14,9 +15,7 @@ function MyNav({ search, handlerSearch }) {
         <Navbar.Brand href="#home">React-EpicBook</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#browse">Browse</Nav.Link>
+            <Link className='nav-link' to="/">Home</Link>
           </Nav>
         </Navbar.Collapse>
         <Search search={search} handlerSearch={handlerSearch} />

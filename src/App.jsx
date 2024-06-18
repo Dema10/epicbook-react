@@ -2,12 +2,14 @@ import { Container } from 'react-bootstrap';
 import './App.css'
 import MyFooter from './componets/MyFooter';
 import MyNav from './componets/MyNav'
+import Home from './pages/Home';
+import BookDetails from './pages/BookDetails';
+import NotFound from './pages/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import Welcome from './componets/Welcome';
-import Buttons from './componets/Buttons';
 import { useState } from 'react';
 import { ThemeContexts } from './modules/Contexts';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -19,12 +21,17 @@ function App() {
   return (
     <>
       <ThemeContexts.Provider value={[theme, setTheme]}>
-        <MyNav search={search} handlerSearch={handlerSearch} />
-        <Container className='my-3'>
-            <Welcome />
-            <Buttons search={search} />
-        </Container>
-        <MyFooter />
+        <BrowserRouter>
+          <MyNav search={search} handlerSearch={handlerSearch} />
+          <Container className='my-3'>
+            <Routes>
+              <Route index element={<Home search={search} />} />
+              <Route path='/details/:asin' element={<BookDetails />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </Container>
+          <MyFooter />
+        </BrowserRouter>
       </ThemeContexts.Provider>
     </>
   )

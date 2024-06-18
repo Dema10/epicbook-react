@@ -1,9 +1,11 @@
-import { Col, Card } from "react-bootstrap";
+import { Col, Card, Button } from "react-bootstrap";
 import { useContext } from 'react';
 import { ThemeContexts } from '../modules/Contexts';
+import { useNavigate } from "react-router-dom";
 
 export default function SingleBook({ book, selected, setSelected }) {
   const [themeCtx] = useContext(ThemeContexts);
+  const navigate = useNavigate();
 
   const borderColor = themeCtx === 'light' ? 'black' : 'white';
 
@@ -23,6 +25,11 @@ export default function SingleBook({ book, selected, setSelected }) {
         </div>
         <Card.Body>
           <Card.Title className="text-truncate">{book.title}</Card.Title>
+          <Button onClick={() => navigate(`/details/${book.asin}`)} 
+                  variant="outline-info"
+                  className="w-100">
+            Detail
+          </Button>
         </Card.Body>
       </Card>
     </Col>
