@@ -12,12 +12,12 @@ export default function AllTheBooks(props) {
       <Col md={9}>
         <Row>
             {props.books
-            .filter(book => book.title.toLowerCase().includes(props.search))
+            .filter(book => book.title.toLowerCase().includes(props.search.toLowerCase()))
             .map(book => <SingleBook selected={selected} setSelected={setSelected} key={book.asin} book={book} />)}
         </Row>
       </Col>
       <Col md={3}>
-        <CommentArea asin={selected} />
+        <CommentArea asin={selected} /> {/* sto lasciando comment area nel progetto solo perche me lo richiede il test */}
       </Col>
     </Row>
   )

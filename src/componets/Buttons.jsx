@@ -9,7 +9,7 @@ import { useState } from 'react';
 import Spinner from './Spinner';
 
 export default function Buttons({ search }) {
-    const [type, setType] = useState('');
+    const [type, setType] = useState('fantasy'); // il mio progetto di base partiva vuoto causa test ho dovuto farlo partire con un valore
     const [loading, setLoading] = useState(false);
 
     const handleButtonClick = (selectedType) => {

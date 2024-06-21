@@ -12,6 +12,7 @@ export default function SingleBook({ book, selected, setSelected }) {
   return (
     <Col xs={12} sm={6} md={4} lg={4} className="mb-3">
       <Card
+        data-testid={'single-card'}
         bg={themeCtx}
         data-bs-theme={themeCtx}
         onClick={() => setSelected(book.asin)}

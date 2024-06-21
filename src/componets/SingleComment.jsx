@@ -1,4 +1,5 @@
 import { Button, ListGroup } from 'react-bootstrap'
+import { StarFill } from 'react-bootstrap-icons';
 
 const URL = 'https://striveschool-api.herokuapp.com/api/comments/'
 const keyURL = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTg1NDMyMDcsImV4cCI6MTcxOTc1MjgwN30.KZZCeMrDqdcojHeqccqyjSZi6vP5Bb7drHbALpJFJ5k'
@@ -29,7 +30,7 @@ export default function SingleComment({ comment, setCommentToEdit, add, setAdd }
     <ListGroup.Item className=' d-flex justify-content-between align-items-center'>
       <div>
         <p className='mb-1'>{comment.comment}</p>
-        <p className='mb-1'>{comment.rate}</p>
+        <p className='mb-1'> {Array.from({length:comment.rate}).map(rate => <StarFill />)}</p>
       </div>
       <div className='btn-group ms-2'>
         <Button variant='outline-warning' onClick={() => handleEdit(comment)}><i className='bi bi-pencil'></i></Button>
